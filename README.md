@@ -100,8 +100,6 @@ A simple web-based Medicine Reminder application built using CodeIgniter 4. This
         ```
     - Open your browser and go to: [http://localhost:8080](http://localhost:8080)
 
-    - **Or**, if using XAMPP's Apache, open your browser and go to: [http://localhost/medicine-reminder/public](http://localhost/medicine-reminder/public)
-
     - You should see the Medicine Reminder home page where you can add, view, edit, or delete medicines.
 
 ## Running on Another Device
