@@ -82,16 +82,27 @@ A simple web-based Medicine Reminder application built using CodeIgniter 4. This
 
 ## How to Run the Application
 
+## How to Run the Application
+
 6. **Start XAMPP**
 
     - Open XAMPP Control Panel and start both **Apache** and **MySQL**.
 
-7. **Navigate to the Home Page**
+7. **Run the Application in the Terminal (Optional for Built-in Server)**
 
-    - Open your browser and go to: [http://localhost/medicine-reminder/public](http://localhost/medicine-reminder/public)
+    - Open Command Prompt and navigate to your project directory:
+        ```bash
+        cd C:\xampp\htdocs\medicine-reminder
+        ```
+    - Start the built-in PHP development server with CodeIgniter's spark command:
+        ```bash
+        php spark serve
+        ```
+    - Open your browser and go to: [http://localhost:8080](http://localhost:8080)
+
+    - **Or**, if using XAMPP's Apache, open your browser and go to: [http://localhost/medicine-reminder/public](http://localhost/medicine-reminder/public)
+
     - You should see the Medicine Reminder home page where you can add, view, edit, or delete medicines.
-
----
 
 ## Running on Another Device
 
