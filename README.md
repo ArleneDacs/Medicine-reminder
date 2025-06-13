@@ -1,68 +1,104 @@
-# CodeIgniter 4 Application Starter
+# Medicine Reminder Web App
 
-## What is CodeIgniter?
+A simple web-based Medicine Reminder application built using CodeIgniter 4. This app allows users to manage medicines with scheduling and tracking features.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Features
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- ✅ Add new medicine with name, dosage, and schedule
+- ✅ View all medicines
+- ✅ Edit or update medicine info
+- ✅ Delete medicine entry
+- ✅ Mark medicine as taken
+- ✅ View history of taken medicines
+- ✅ Search by name, dosage, or schedule
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+## Installation Instructions
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### ✅ Prerequisites
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- PHP ≥ 8.0.30 (included with XAMPP)
+- XAMPP (for Apache and MySQL)
+- CodeIgniter 4 (already included in this project folder)
 
-## Setup
+---
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### Setup Steps
 
-## Important Change with index.php
+1. **Clone, Download or Copy the Project**
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+    - **Clone using Git (recommended):**
+        ```bash
+        git clone https://github.com/ArleneDacs/Medicine-reminder.git
+        ```
+    - **Or download the project ZIP** from GitHub and extract it to your device.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+2. **Move the Project to XAMPP's Web Directory**
 
-## Repository Management
+    - Place the `medicine-reminder` folder inside your XAMPP `htdocs` directory (e.g., `C:\xampp\htdocs\medicine-reminder`).
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+3. **Set Up Environment Variables**
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+    - Copy the `env` file and rename it to `.env` in the project root.
+    - Open `.env` in a text editor and update these lines as needed:
+        ```
+        app.baseURL = 'http://localhost/medicine-reminder/public'
+        database.default.hostname = localhost
+        database.default.database = medicine_app
+        database.default.username = root
+        database.default.password =
+        database.default.DBDriver = MySQLi
+        ```
 
-## Server Requirements
+---
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+## SQL Database Guidance
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+4. **Create Database**
 
-> [!WARNING]
-> The end of life date for PHP 7.4 was November 28, 2022.
-> The end of life date for PHP 8.0 was November 26, 2023.
-> If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> The end of life date for PHP 8.1 will be November 25, 2024.
+    - Open phpMyAdmin (usually at [http://localhost/phpmyadmin](http://localhost/phpmyadmin)) and run:
+        ```sql
+        CREATE DATABASE medicine_app;
+        ```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+5. **Create the Table**
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+    - Run the following SQL in phpMyAdmin to create the `medicines` table:
+        ```sql
+        CREATE TABLE medicines (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            dosage VARCHAR(255) NOT NULL,
+            schedule VARCHAR(255) NOT NULL,
+            taken TINYINT(1) DEFAULT 0
+        );
+        ```
+
+---
+
+## How to Run the Application
+
+6. **Start XAMPP**
+
+    - Open XAMPP Control Panel and start both **Apache** and **MySQL**.
+
+7. **Navigate to the Home Page**
+
+    - Open your browser and go to: [http://localhost/medicine-reminder/public](http://localhost/medicine-reminder/public)
+    - You should see the Medicine Reminder home page where you can add, view, edit, or delete medicines.
+
+---
+
+## Running on Another Device
+
+1. Copy the entire project folder to the new device.
+2. Repeat the installation steps above on the new device.
+3. Make sure XAMPP is installed and running on the new device.
+
+---
+
+For more details, see the [CodeIgniter 4 User Guide](https://codeigniter.com/user_guide/).
